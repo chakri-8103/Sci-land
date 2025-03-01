@@ -354,6 +354,81 @@
                 color: #d1d1e1;
                 max-width: 80%;
             }
+            /* Mobile-Specific Styles (No Changes to Existing Styles) */
+@media (max-width: 768px) {
+    /* Header Adjustments for Mobile */
+    header h1 {
+        font-size: 2rem; /* Smaller font size for mobile */
+    }
+
+    header p {
+        font-size: 1rem; /* Smaller font size for mobile */
+    }
+
+    /* Container Adjustments for Mobile */
+    .container {
+        width: 95%; /* Slightly narrower container for mobile */
+        padding: 15px; /* Reduced padding for mobile */
+    }
+
+    /* Card Layout for Mobile */
+    .categories {
+        flex-direction: column; /* Stack cards vertically */
+        align-items: center; /* Center-align cards */
+    }
+
+    .card {
+        width: 90%; /* Wider cards for better readability */
+        margin-bottom: 20px; /* Add spacing between cards */
+    }
+
+    /* Contact Boxes for Mobile */
+    .contact-boxes .row {
+        flex-direction: column; /* Stack contact boxes vertically */
+        align-items: center; /* Center-align contact boxes */
+    }
+
+    .register, .event, .contact {
+        width: 90%; /* Wider contact boxes for mobile */
+        margin-bottom: 20px; /* Add spacing between boxes */
+    }
+
+    /* Matter Display for Mobile */
+    .matter-display {
+        padding: 15px; /* Reduced padding for mobile */
+    }
+
+    #matterTitle {
+        font-size: 1.5rem; /* Smaller font size for mobile */
+    }
+
+    #matterText {
+        font-size: 1rem; /* Smaller font size for mobile */
+        max-width: 90%; /* Limit text width for better readability */
+    }
+
+    /* Footer Adjustments for Mobile */
+    footer {
+        padding: 10px; /* Reduced padding for mobile */
+    }
+
+    footer p {
+        font-size: 0.8rem; /* Smaller font size for mobile */
+    }
+
+    /* Notification Toggle for Mobile */
+    .toggle-container {
+        top: 10px; /* Adjust position for mobile */
+        left: 10px; /* Adjust position for mobile */
+        padding: 10px; /* Reduced padding for mobile */
+    }
+
+    .popup-container {
+        width: 90%; /* Wider popup for mobile */
+        right: 5%; /* Center-align popup */
+        left: 5%; /* Center-align popup */
+    }
+}
             
             
         }
@@ -375,6 +450,8 @@
         </div>
     </div>
     </div>
+    <br>
+    <br>
 
     <!-- Main Content -->
     <header>
