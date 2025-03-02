@@ -8,35 +8,65 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #f4f4f4;
-            margin: 20px;
+            background: linear-gradient(135deg, #00c6ff 40%, #0072ff 40%, #764ba2 20%);
+
+
+
+            margin: 0;
+            padding: 20px;
+            color: white;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
         .contacts-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Two cards per row */
+            display: flex;
+            flex-direction: column; /* One card per row */
+            align-items: center; /* Center cards horizontally */
             gap: 20px;
-            justify-content: center;
             max-width: 1200px;
             margin: auto;
         }
         .card {
-            width: 100%;
             background: white;
-            padding: 8px;
-            border-radius: 10px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-            text-align: left;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 80%; /* Adjust width for better spacing */
+            max-width: 800px; /* Limit maximum width */
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        .card h3 {
+            background: white;
+            color: green;
+            margin: 0;
+            padding: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .card h3:hover {
+            background: #128C7E;
         }
         .contact-item {
-            display: flex;
+            display: none; /* Initially hidden */
             justify-content: space-between;
+            align-items: center;
             padding: 15px;
-            margin: 5px 0;
             background: #f9f9f9;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 18px;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            transition: background 0.3s, color 0.3s;
+        }
+        .card:hover .contact-item {
+            display: flex; /* Show contact items on card hover */
         }
         .contact-item:hover {
             background: #25D366;
@@ -45,44 +75,12 @@
         .contact-name {
             font-weight: bold;
         }
-        .container {
-            width: 50%;
-            margin: auto;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
-            background: white;
+        .contact-item span {
+            font-size: 1rem;
         }
-        h2, h3, h1 {
-            color: #25D366;
-            text-align: center;
-        }
-        select, input, button {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 18px;
-        }
-        button {
-            background-color: #25D366;
-            color: white;
-            cursor: pointer;
-            font-weight: bold;
-            border: none;
-            transition: 0.3s;
-            padding: 12px;
-        }
-        button:hover {
-            background-color: #1da851;
-        }
-        @media (max-width: 800px) {
-            .contacts-container {
-                grid-template-columns: 1fr; /* One card per row on small screens */
-            }
-            .container {
-                width: 80%;
+        @media (max-width: 768px) {
+            .card {
+                width: 90%; /* Adjust width for smaller screens */
             }
         }
     </style>
@@ -94,63 +92,61 @@
         <!-- Card 1 -->
         <div class="card">
             <h3>SATYA NADELLA CLUB</h3>
-            <div class="contact-item" onclick="openWhatsAppDirect('91', '7981265187')">
+            <div class="contact-item" onclick="openWhatsAppDirect('91', '7075196267')">
                 <span class="contact-name">Sandeep</span>
-                <span>📞 7981265187</span>
+                <span>📞 7075196267</span>
             </div>
             <div class="contact-item" onclick="openWhatsAppDirect('91', '7981265187')">
                 <span class="contact-name">Chakradhar</span>
-                <span>📞 +91 7981265187</span>
+                <span>📞 7981265187</span>
             </div>
             <div class="contact-item" onclick="openWhatsAppDirect('91', '7989054574')">
                 <span class="contact-name">Abhinaya</span>
-                <span>📞 +91 7989054574</span>
+                <span>📞 7989054574</span>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <h3>TACHYONS CLUB</h3>
+            <div class="contact-item" onclick="openWhatsAppDirect('91', '7842554979')">
+                <span class="contact-name">Sai Teja</span>
+                <span>📞 7842554979</span>
+            </div>
+            <div class="contact-item" onclick="openWhatsAppDirect('91', '7674008667')">
+                <span class="contact-name">Harika</span>
+                <span>📞 7674008667</span>
+            </div>
+            <div class="contact-item" onclick="openWhatsAppDirect('91', '7569414878')">
+                <span class="contact-name">Satya kala meghana</span>
+                <span>📞 7569414878</span>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <h3>RONALDO CLUB</h3>
+            <div class="contact-item" onclick="openWhatsAppDirect('91', '7569388411')">
+                <span class="contact-name">Amulya</span>
+                <span>📞 7569388411</span>
+            </div>
+            <div class="contact-item" onclick="openWhatsAppDirect('91', '9391285727')">
+                <span class="contact-name">Radhika sai</span>
+                <span>📞 9391285727</span>
+            </div>
+            <div class="contact-item" onclick="openWhatsAppDirect('91', '8341044671')">
+                <span class="contact-name">Ganesh</span>
+                <span>📞 8341044671</span>
             </div>
         </div>
     </div>
 
-    <br><br>
-
-    <!-- WhatsApp Connect -->
-    <div class="container">
-        <h2>WhatsApp Connect</h2>
-        <select id="countryCode">
-            <option value="">Select Country Code</option>
-            <option value="91">🇮🇳 India (+91)</option>
-            <option value="1">🇺🇸 USA (+1)</option>
-            <option value="44">🇬🇧 UK (+44)</option>
-            <option value="971">🇦🇪 UAE (+971)</option>
-            <option value="1">🇨🇦 Canada (+1)</option>
-        </select>
-        <input type="text" id="phoneNumber" placeholder="Enter phone number">
-        <button onclick="openWhatsApp()">Start Chat</button>
-    </div>
-
     <script>
-        function openWhatsApp() {
-            var countryCode = document.getElementById("countryCode").value;
-            var phoneNumber = document.getElementById("phoneNumber").value.trim();
-            
-            if (countryCode === "") {
-                alert("Please select a country code.");
-                return;
-            }
-            if (phoneNumber === "") {
-                alert("Please enter a phone number.");
-                return;
-            }
-
-            var fullNumber = countryCode + phoneNumber;
-            var url = "https://wa.me/" + fullNumber;
-            window.open(url, "_blank");
-        }
-
         function openWhatsAppDirect(countryCode, phoneNumber) {
             var fullNumber = countryCode + phoneNumber;
             var url = "https://wa.me/" + fullNumber;
             window.open(url, "_blank");
         }
     </script>
-
 </body>
 </html>
