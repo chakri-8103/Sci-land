@@ -27,12 +27,15 @@
 
         .slider {
             display: flex;
+            width: 10000px; /* Large enough to hold 100 images */
             transition: transform 0.5s ease-in-out;
             height: 100%;
         }
 
         .slide {
             flex: 0 0 100%;
+            width: 800px;
+            height: 500px;
         }
 
         .slide img {
@@ -48,7 +51,7 @@
             gap: 20px;
         }
 
-        .arrow {
+        .arrow, .play-pause {
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -64,7 +67,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.15);
         }
 
-        .arrow:hover {
+        .arrow:hover, .play-pause:hover {
             background: white;
             box-shadow: 0 0 15px rgba(0,0,0,0.2);
         }
@@ -72,33 +75,74 @@
 </head>
 <body>
     <div class="slider-container">
-        <div class="slider" id="slider">
-            <div class="slide"><img src="images/sample.jpg" alt="Slide 1"></div>
-        </div>
+        <div class="slider" id="slider"></div>
     </div>
     <div class="controls">
         <button class="arrow prev" onclick="prevSlide()">❮</button>
+        <button class="play-pause" id="playPauseBtn" onclick="toggleAutoplay()">▶</button>
         <button class="arrow next" onclick="nextSlide()">❯</button>
     </div>
 
     <script>
+        const slider = document.getElementById("slider");
+
+        // Generate 100 images dynamically
+        for (let i = 1; i <= 100; i++) {
+            const slide = document.createElement("div");
+            slide.classList.add("slide");
+
+            const img = document.createElement("img");
+            img.src = `images/image${i}.jpg`;
+            img.alt = `Slide ${i}`;
+
+            slide.appendChild(img);
+            slider.appendChild(slide);
+        }
+
         let currentIndex = 0;
-        const slides = document.querySelectorAll(".slide");
-        const totalSlides = slides.length;
+        const totalSlides = 100; 
+        let autoplayInterval = null;
+        let isPlaying = false;
+        const playPauseBtn = document.getElementById("playPauseBtn");
+
+        function goToSlide(index) {
+            if (index >= 0 && index < totalSlides) {
+                currentIndex = index;
+                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+        }
 
         function nextSlide() {
-            if (currentIndex < totalSlides - 1) {
-                currentIndex++;
-                document.getElementById("slider").style.transform = `translateX(-${currentIndex * 100}%)`;
-            }
+            currentIndex = (currentIndex + 1) % totalSlides;
+            goToSlide(currentIndex);
         }
 
         function prevSlide() {
-            if (currentIndex > 0) {
-                currentIndex--;
-                document.getElementById("slider").style.transform = `translateX(-${currentIndex * 100}%)`;
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            goToSlide(currentIndex);
+        }
+
+        function startAutoplay() {
+            autoplayInterval = setInterval(nextSlide, 5000);
+            playPauseBtn.innerHTML = "⏸"; 
+            isPlaying = true;
+        }
+
+        function stopAutoplay() {
+            clearInterval(autoplayInterval);
+            playPauseBtn.innerHTML = "▶"; 
+            isPlaying = false;
+        }
+
+        function toggleAutoplay() {
+            if (isPlaying) {
+                stopAutoplay();
+            } else {
+                startAutoplay();
             }
         }
+
+        // startAutoplay(); // Start autoplay by default
     </script>
 </body>
 </html>
