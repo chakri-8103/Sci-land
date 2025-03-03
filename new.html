@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Slider</title>
+    <title>Responsive Image Slider</title>
     <style>
         body {
             margin: 0;
@@ -18,8 +18,10 @@
 
         .slider-container {
             position: relative;
-            width: 800px;
-            height: 500px;
+            width: 90vw;
+            max-width: 800px;
+            height: 50vw;
+            max-height: 500px;
             overflow: hidden;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
@@ -27,21 +29,21 @@
 
         .slider {
             display: flex;
-            width: 10000px; /* Large enough to hold 100 images */
             transition: transform 0.5s ease-in-out;
             height: 100%;
         }
 
         .slide {
             flex: 0 0 100%;
-            width: 800px;
-            height: 500px;
+            width: 100%;
+            height: 100%;
         }
 
         .slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            loading: lazy;
         }
 
         .controls {
@@ -71,6 +73,17 @@
             background: white;
             box-shadow: 0 0 15px rgba(0,0,0,0.2);
         }
+
+        @media (max-width: 600px) {
+            .slider-container {
+                height: 60vw;
+            }
+            .arrow, .play-pause {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -92,15 +105,16 @@
             slide.classList.add("slide");
 
             const img = document.createElement("img");
-            img.src = `images/image${i}.JPG`;
+            img.src = `images/image${i}.jpg`;
             img.alt = `Slide ${i}`;
+            img.loading = "lazy"; 
 
             slide.appendChild(img);
             slider.appendChild(slide);
         }
 
         let currentIndex = 0;
-        const totalSlides = 100; 
+        const totalSlides = 100;
         let autoplayInterval = null;
         let isPlaying = false;
         const playPauseBtn = document.getElementById("playPauseBtn");
@@ -124,13 +138,13 @@
 
         function startAutoplay() {
             autoplayInterval = setInterval(nextSlide, 5000);
-            playPauseBtn.innerHTML = "⏸"; 
+            playPauseBtn.innerHTML = "⏸";
             isPlaying = true;
         }
 
         function stopAutoplay() {
             clearInterval(autoplayInterval);
-            playPauseBtn.innerHTML = "▶"; 
+            playPauseBtn.innerHTML = "▶";
             isPlaying = false;
         }
 
@@ -142,6 +156,22 @@
             }
         }
 
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.querySelector(".slider-container").addEventListener("touchstart", (e) => {
+            touchStartX = e.touches[0].clientX;
+        });
+
+        document.querySelector(".slider-container").addEventListener("touchend", (e) => {
+            touchEndX = e.changedTouches[0].clientX;
+            if (touchStartX - touchEndX > 50) {
+                nextSlide();
+            } else if (touchEndX - touchStartX > 50) {
+                prevSlide();
+            }
+            
+        });
         // startAutoplay(); // Start autoplay by default
     </script>
 </body>
