@@ -3,171 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Club Registrations</title>
+    <title>Coming Soon</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* Base Styles */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-        }
-
-        .container {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            height: 100vh;
+            background: #121212;
+            color: #fff;
+            font-family: Arial, sans-serif;
             text-align: center;
-            width: 90%;
-            max-width: 400px;
-            transform: translateY(0);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin: 2rem 0;
+            margin: 0;
+            padding: 0;
         }
 
-        .container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        h1 {
+            font-size: 2.5rem;
+            animation: blink 1.5s infinite alternate;
+            margin: 0.5rem 0; /* Add spacing between h1 elements */
         }
 
-        h2 {
-            color: #2d3748;
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-            position: relative;
-            padding-bottom: 10px;
+        @keyframes blink {
+            0% { opacity: 1; }
+            100% { opacity: 0.5; }
         }
 
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 2px;
-        }
-
-        label {
-            font-size: 1.1rem;
-            font-weight: 600;
-            display: block;
-            margin-bottom: 1rem;
-            color: #4a5568;
-        }
-
-        select {
-            width: 100%;
-            padding: 12px;
-            font-size: 1rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            background-color: #fff;
-            cursor: pointer;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        select:hover {
-            border-color: #667eea;
-        }
-
-        select:focus {
-            border-color: #764ba2;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
-        }
-
-        option {
-            padding: 10px;
-        }
-
-        .footer {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1rem;
-            text-align: center;
-            width: 100%;
-            color: white;
-            margin-top: auto;
-        }
-
-        .footer p {
-            margin: 0.5rem 0;
-            font-size: 0.9rem;
-        }
-
-        .social-links {
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: #e2e8f0;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+        /* Mobile-Specific Styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem; /* Smaller font size for mobile */
             }
         }
 
-        .container {
-            animation: fadeIn 0.8s ease-out;
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem; /* Even smaller font size for very small screens */
+            }
         }
     </style>
-    <script>
-        function redirectToPage() {
-            let category = document.getElementById("category").value;
-            if (category) {
-                window.location.href = category.toLowerCase().replace(/\s+/g, '-') + ".html";
-            }
-        }
-    </script>
 </head>
 <body>
-    <div class="container">
-        <h2>Welcome to Sci-land Registrations</h2>
-        <label for="category">Select your Department</label>
-        <select id="category" name="category" required onchange="redirectToPage()">
-            <option value="">Select</option>
-            
-            <option value="Physics">Physics</option>
-            <option value="stat">Statistics</option>
-            <option value="Chemistry">Chemistry</option>
-            <option value="Commerce">Commerce</option>
-            <option value="Electronics">Electronics</option>
-            <option value="Ls">Life Science</option>
-            <option value="Ds">Data Science</option>
-            <option value="Computers">Computer Science</option>
-            <option value="Ai">Artificial Intelligence</option>
-            
-        </select>
+    <div>
+        <h1>This Registration Portal is Permanently Closed.</h1>
+        <h1>Thank You</h1>
     </div>
-
-    <footer class="footer">
-        <p>© 2025 Club Registrations. All rights reserved.</p>
-    </footer>
 </body>
 </html>
