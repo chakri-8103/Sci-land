@@ -3,32 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+    <title>Event Coordinators</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
-            background: black;
+            background: #f8f9fa;
             margin: 0;
             padding: 0;
             min-height: 100vh;
         }
 
-        h1 {
-            color: green;
+        h1, h2 {
+            color: #28a745;
             font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
             animation: fadeInDown 1s ease-out;
         }
 
+        .header {
+            background-color: #fff;
+            padding: 30px 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        .contacts-container {
+            max-width: 1200px;
+            margin: 0 auto 50px;
+            padding: 0 15px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeIn 1.5s ease-out;
+            border: none;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            background: #28a745;
+            color: white;
+            margin: 0;
+            padding: 15px;
+            font-size: 1.5rem;
+            transition: background 0.3s;
+            text-align: center;
+        }
+
+        .contact-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: #f9f9f9;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            transition: background 0.3s, color 0.3s;
+            cursor: pointer;
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-item:hover {
+            background: #e9ffef;
+            color: #28a745;
+        }
+
+        .contact-name {
+            font-weight: bold;
+        }
+
+        .contact-item span {
+            font-size: 1rem;
+        }
+
+        /* Contact Us Section */
+        .contact-us-section {
+            background: #212529;
+            padding: 50px 0;
+            color: white;
+        }
+
         .contact-container {
-            max-width: 600px;
-            margin: 50px auto;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            animation: fadeInUp 1s ease-out;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 15px;
         }
 
         .contact-cards {
@@ -40,31 +113,39 @@
         }
 
         .contact-card {
-            background: rgba(248, 249, 250, 0.9);
-            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
             border-radius: 10px;
             width: 300px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             animation: fadeIn 1.5s ease-out;
         }
 
         .contact-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
 
         .contact-card h5 {
-            color: #2c3e50;
-            margin-bottom: 10px;
+            color: #28a745;
+            margin-bottom: 15px;
             font-weight: 600;
+            font-size: 1.3rem;
         }
 
         .contact-card p {
             color: #495057;
-            margin: 5px 0;
+            margin: 10px 0;
+            font-size: 1rem;
         }
+
+        .section-title {
+            color: white;
+            margin-bottom: 30px;
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -79,32 +160,223 @@
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        @media (max-width: 768px) {
+            .card {
+                width: 100%;
+            }
+            .contact-card {
+                width: 90%;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="text-center">Contact Us</h1>
+    <div class="header">
+        <h1 class="animate__animated animate__fadeInDown">Event Coordinators</h1>
+    </div>
 
-        <!-- Contact Cards (Updated Layout) -->
-        <div class="contact-cards">
-            <div class="contact-card">
-                <h5>Prasad</h5>
-                <p>Phone: +91 9346354212</p>
-                <p>Email: prasadriskrider@gmail.com</p>
+    <div class="contacts-container">
+        <div class="row">
+            <!-- Card 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card">
+                    <h3>SATYA NADELLA CLUB</h3>
+                    <div class="contact-item" onclick="openWhatsAppDirect('91', '7075196267')">
+                        <span class="contact-name">Sandeep</span>
+                        <span>📞 7075196267</span>
+                    </div>
+                    <div class="contact-item" onclick="openWhatsAppDirect('91', '7981265187')">
+                        <span class="contact-name">Chakradhar</span>
+                        <span>📞 7981265187</span>
+                    </div>
+                    <div class="contact-item" onclick="openWhatsAppDirect('91', '7989054574')">
+                        <span class="contact-name">Abhinaya</span>
+                        <span>📞 7989054574</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="contact-card">
-                <h5>Chakradhar</h5>
-                <p>Phone: +91 79812 65187</p>
-                <p>Email: janapaneedichakradhar678@gmail.com</p>
+            <!-- Card 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card">
+                    <h3>TACHYONS CLUB</h3>
+                    <div class="contact-item" onclick="openWhatsAppDirect('91', '7842554979')">
+                        <span class="contact-name">Sai Teja</span>
+                        <span>📞 7842554979</span>
+                    </div>
+                    <div class="contact-item" onclick="openWhatsAppDirect('91', '7674008667')">
+                        <span class="contact-name">Harika</span>
+                        <span>📞 7674008667</span>
+                    </div>
+                    <div class="contact-item" onclick="openWhatsAppDirect('91', '7569414878')">
+                        <span class="contact-name">Satya kala meghana</span>
+                        <span>📞 7569414878</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="contact-card">
-                <h5>Varaprasad</h5>
-                <p>Phone: +91 6281726095</p>
-                <p>Email: kurakulavaraprasad87@gmail.com</p>
+            <!-- Card 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card">
+                    <h3>RONALDO CLUB</h3>
+                    <div class="contact-item" onclick="openWhatsAppDirect('91', '7569388411')">
+                        <span class="contact-name">Amulya</span>
+                        <span>📞 7569388411</span>
+                    </div>
+                    <div class="contact-item" onclick="openWhatsAppDirect('91', '9391285727')">
+                        <span class="contact-name">Radhika sai</span>
+                        <span>📞 9391285727</span>
+                    </div>
+                    <div class="contact-item" onclick="openWhatsAppDirect('91', '8341044671')">
+                        <span class="contact-name">Ganesh</span>
+                        <span>📞 8341044671</span>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Card 4 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card">
+                    <h3>AI DEPT</h3>
+                    <div class="contact-item" onclick="openWhatsAppDirect('91', '7095989117')">
+                        <span class="contact-name">P. Tasvanth Kumar</span>
+                        <span>📞 7095989117</span>
+                    </div>
+                    <div class="contact-item" onclick="openWhatsAppDirect('91', '9493564298')">
+                        <span class="contact-name">B.S.L. Sireesha</span>
+                        <span>📞 9493564298</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 5 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card">
+                    <h3>COMMERCE CLUB</h3>
+                    <div class="contact-item" onclick="openWhatsAppDirect('91', '7032466320')">
+                        <span class="contact-name">Vikash</span>
+                        <span>📞 7032466320</span>
+                    </div>
+                    <div class="contact-item" onclick="openWhatsAppDirect('91', '9059741873')">
+                        <span class="contact-name">Ashritha</span>
+                        <span>📞 9059741873</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 6 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card">
+                    <h3>DATA WRANGLERS CLUB</h3>
+                    <div class="contact-item" onclick="openWhatsAppDirect('91', '9542333272')">
+                        <span class="contact-name">Divya</span>
+                        <span>📞 9542333272</span>
+                    </div>
+                    <div class="contact-item" onclick="openWhatsAppDirect('91', '9948543219')">
+                        <span class="contact-name">Prabhas</span>
+                        <span>📞 9948543219</span>
+                    </div>
+                    <div class="contact-item" onclick="openWhatsAppDirect('91', '7032881904')">
+                        <span class="contact-name">Zainab</span>
+                        <span>📞 7032881904</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 7 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card">
+                    <h3>EDISON ELITES CLUB</h3>
+                    <div class="contact-item" onclick="openWhatsAppDirect('91', '8688156315')">
+                        <span class="contact-name">P. Sai Teja</span>
+                        <span>📞 8688156315</span>
+                    </div>
+                    <div class="contact-item" onclick="openWhatsAppDirect('91', '9550207021')">
+                        <span class="contact-name">V. Manikanta</span>
+                        <span>📞 9550207021</span>
+                    </div>
+                    <div class="contact-item" onclick="openWhatsAppDirect('91', '868889110')">
+                        <span class="contact-name">Ch. Revathi</span>
+                        <span>📞 868889110</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 8 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card">
+                    <h3>LOUIS PASTEUR CLUB</h3>
+                    <div class="contact-item" onclick="openWhatsAppDirect('91', '9652125378')">
+                        <span class="contact-name">V. Hima Bindu</span>
+                        <span>📞 9652125378</span>
+                    </div>
+                    <div class="contact-item" onclick="openWhatsAppDirect('91', '8464933611')">
+                        <span class="contact-name">K. Pardhiv Chowdary</span>
+                        <span>📞 8464933611</span>
+                    </div>
+                    <div class="contact-item" onclick="openWhatsAppDirect('91', '8328316663')">
+                        <span class="contact-name">N. Sri Lakshmi</span>
+                        <span>📞 8328316663</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 9 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card">
+                    <h3>PRAFULLA CHANDRA RAY CLUB</h3>
+                    <div class="contact-item" onclick="openWhatsAppDirect('91', '7989716156')">
+                        <span class="contact-name">Rajesh</span>
+                        <span>📞 7989716156</span>
+                    </div>
+                    <div class="contact-item" onclick="openWhatsAppDirect('91', '6304656562')">
+                        <span class="contact-name">Vasavi</span>
+                        <span>📞 6304656562</span>
+                    </div>
+                    <div class="contact-item" onclick="openWhatsAppDirect('91', '8688335756')">
+                        <span class="contact-name">Satwika</span>
+                        <span>📞 8688335756</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- Contact Us Section -->
+    <div class="contact-us-section">
+        <div class="contact-container">
+            <h2 class="section-title text-center">Contact Us</h2>
+            
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <h5>Prasad</h5>
+                    <p>📞 +91 9346354212</p>
+                    <p>✉️ prasadriskrider@gmail.com</p>
+                </div>
+
+                <div class="contact-card">
+                    <h5>Chakradhar</h5>
+                    <p>📞 +91 7981265187</p>
+                    <p>✉️ janapaneedichakradhar678@gmail.com</p>
+                </div>
+
+                <div class="contact-card">
+                    <h5>Varaprasad</h5>
+                    <p>📞 +91 6281726095</p>
+                    <p>✉️ kurakulavaraprasad87@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function openWhatsAppDirect(countryCode, phoneNumber) {
+            var fullNumber = countryCode + phoneNumber;
+            var url = "https://wa.me/" + fullNumber;
+            window.open(url, "_blank");
+        }
+    </script>
 </body>
 </html>
