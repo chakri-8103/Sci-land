@@ -567,23 +567,22 @@
             </section>
         </div>
 
-
         <!-- Modal -->
         <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content shadow-lg">
                     <div class="modal-header bg-primary text-white">
                         <h5 class="modal-title" id="infoModalLabel">Title</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body">
                         <ul id="infoList" class="list-group list-group-flush fs-5">
-                            <!-- Dynamic list -->
+                            <!-- Dynamic content will be inserted here -->
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
+
 
 
 
@@ -619,14 +618,121 @@
 
 
     <script>
+        const matterDetails = {
+            "Commerce": {
+                points: [
+                    "Where commerce meets innovation and growth.",
+                    "Join the financial revolution and shape the future of trade.",
+                    "Empowering minds with commerce and financial expertise.",
+                    "Transforming data into insights and driving business progress.",
+                    "Where numbers meet strategy and commerce thrives."
+                ]
+            },
+            "Chemistry": {
+                points: [
+                    "Exploring the elements of innovation through chemical creativity.",
+                    "From lab to life: transforming chemistry into solutions.",
+                    "Molecules in motion: chemistry projects with real-world impact.",
+                    "Eco-friendly experiments for sustainable futures.",
+                    "Chemical applications in health, food, and environment."
+                ]
+            },
+            "Physics": {
+                points: [
+                    "Unveiling the universe one experiment at a time.",
+                    "Where forces meet ideas: physics in action.",
+                    "Smart systems using mechanics, optics, and energy principles.",
+                    "Innovating solutions using electromagnetic and wave concepts.",
+                    "From quantum ideas to cosmic explorations."
+                ]
+            },
+            "Computers": {
+                points: [
+                    "Coding real-world solutions with logic and creativity.",
+                    "Designing applications that solve everyday problems.",
+                    "Automation and tools using modern programming languages.",
+                    "Interactive projects with web and mobile technologies.",
+                    "Building smart systems through software innovation."
+                ]
+            },
+            "Electronics": {
+                points: [
+                    "Sparking innovation through circuits and systems.",
+                    "Designing smart devices and embedded systems.",
+                    "IoT-based electronics for automation and control.",
+                    "Sensor-driven electronics for smarter environments.",
+                    "Innovative electronics for health, safety, and energy."
+                ]
+            },
+            "Statistics": {
+                points: [
+                    "Analyzing the world, one dataset at a time.",
+                    "Statistical models for business, health, and social research.",
+                    "Predictive analysis using statistical tools.",
+                    "Data interpretation to support decision-making.",
+                    "Survey-based projects with real-world datasets."
+                ]
+            },
+            "Data Science": {
+                points: [
+                    "Transforming data into real-world solutions.",
+                    "Predictive modeling for business and research.",
+                    "Machine learning projects powered by big data.",
+                    "Insight-driven decision support systems.",
+                    "Real-time analytics for smarter applications."
+                ]
+            },
+            "AI": {
+                points: [
+                    "Building intelligent systems with real-world use cases.",
+                    "AI-powered automation and smart assistants.",
+                    "Machine learning models that adapt and improve.",
+                    "AI in health, finance, education, and beyond.",
+                    "Developing ethical and responsible AI applications."
+                ]
+            },
+            "Life Science": {
+                points: [
+                    "Biology-based innovations for sustainable living.",
+                    "Life science solutions in agriculture and health.",
+                    "Projects on genetics, microbiology, and environment.",
+                    "Applications of biotechnology in daily life.",
+                    "Exploring biodiversity and ecosystem restoration."
+                ]
+            }
+        };
 
-        function showMatter(title, text) {
-            document.getElementById('matterModalLabel').textContent = title;
-            document.getElementById('matterText').textContent = text;
 
-            const modal = new bootstrap.Modal(document.getElementById('matterModal'));
+
+        function showMatter(subject) {
+            const details = matterDetails[subject];
+
+            // If no data, use fallback
+            const title = subject;
+            const paragraph = details?.paragraph || "Description coming soon...";
+            const points = details?.points || [];
+
+            // Set modal title
+            document.getElementById("infoModalLabel").innerText = title;
+
+            // Set paragraph
+            // document.getElementById("infoPara").innerText = paragraph;
+
+            // Populate bullet points
+            const listContainer = document.getElementById("infoList");
+            listContainer.innerHTML = "";
+            points.forEach(line => {
+                const li = document.createElement("li");
+                li.className = "list-group-item";
+                li.textContent = line;
+                listContainer.appendChild(li);
+            });
+
+            // Show Bootstrap modal
+            const modal = new bootstrap.Modal(document.getElementById('infoModal'));
             modal.show();
         }
+
 
 
         // Navigation Functions
